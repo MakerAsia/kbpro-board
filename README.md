@@ -12,6 +12,9 @@ All accessible functions are cited in **'include'**  folder, and all pin definat
 
 ### Schematic 
 can be found in static folder
-
+### Change log
+Version 1.0.1
+ - rename block button state to button is presssed and invert logic (button pulled high)
+ - add bug to fix next version
 ### License
 MIT
