@@ -1,5 +1,5 @@
 const nativeImage = require('electron').nativeImage;
-var createBuffer = function(pixels,width,height){  
+var createBuffer = function(pixels,width,height){
   var depth = 4,
       pixelsLen = pixels.length,
       unpackedBuffer = [],
@@ -23,9 +23,9 @@ var createBuffer = function(pixels,width,height){
   }
   return buffer;
 };
+
 module.exports = function(Blockly){
   'use strict';
-
   Blockly.JavaScript['i2c128x64_create_image'] = function(block) {
     var dataurl = block.inputList[1].fieldRow["0"].src_;
     var image = nativeImage.createFromDataURL(dataurl);
@@ -40,7 +40,7 @@ module.exports = function(Blockly){
     if(hexStringArr.endsWith(',')){
       hexStringArr = hexStringArr.substring(0,hexStringArr.length - 1);
     }
-    var code = `(vector<uint8_t>{${hexStringArr}})`;
+    var code = `(std::vector<uint8_t>{${hexStringArr}})`;
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
@@ -72,7 +72,7 @@ Blockly.JavaScript['i2c128x64_display_print'] = function(block) {
   var code = 
 `
 display.setFont(${dropdown_font});
-display.drawString(${value_x},${value_y},${value_text});
+display.drawString(${value_x},${value_y},String(${value_text}));
 `;
   return code;
 };

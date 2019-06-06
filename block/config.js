@@ -291,8 +291,17 @@ module.exports = {
                             </shadow>
                         </value>
                     </block>`
-                },     
-                /*'io_analog_write',*/
+                },
+                {
+                    xml :
+                        `<block type="io_analog_write">
+                        <value name="value">
+                            <shadow type="math_number">
+                                <field name="NUM">128</field>
+                            </shadow>
+                        </value>
+                    </block>`
+                },
                 {
                     xml : 
                     `<block type="io_pwm_write">
@@ -346,6 +355,16 @@ module.exports = {
                         </value>
                     </block>`
                 },
+                {
+                    xml :
+                        `<block type="time_delay_microsec">
+                        <value name="delay">
+                            <shadow type="math_number">
+                                <field name="NUM">1000</field>
+                            </shadow>
+                        </value>
+                    </block>`
+                },
                 'time_wait_btn_press',
                 'time_sync',
                 'time_get_year',
@@ -360,10 +379,29 @@ module.exports = {
             ]
         },        
         {
-            name : 'Music',
+            name : 'Sound',
             color : '230',
             icon : '/static/icons/icons8_musical_notes_96px.png',
             blocks : [
+                'speaker_tts_word',
+                {
+                    xml : `<block type="speaker_tts_speak">
+                                <value name="words">                    
+                                    <block type="speaker_tts_word">
+                                        <field name="words">HELLO</field>
+                                    </block>
+                                </value>
+                            </block>`
+                },
+                {
+                    xml : `<block type="speaker_tts_speak_number">
+                                <value name="number">
+                                    <shadow type="math_number">
+                                        <field name="NUM">1234</field>
+                                    </shadow>
+                                </value>
+                            </block>`
+                },
                 /*{
                     xml : `<block type="variables_set">
                                 <field name="VAR">music1</field>
@@ -505,6 +543,9 @@ module.exports = {
             icon : '/static/icons/icons8_serial_tasks_96px.png',
             blocks : [
                 'controls_if',
+                {
+                    xml : '<block type="controls_if"><mutation else="1"></mutation></block>'
+                },
                 'logic_compare',
                 'logic_operation',
                 'logic_negate',
