@@ -824,16 +824,81 @@ module.exports = {
                     name : 'Task',
                     icon : '/static/icons/SVG/13.svg',
                     blocks : [
-                        {
-                            xml : `<block type="task_timer_interrupt">
+                      {xml: '<label text="Custom start" web-class="headline"></label>'},
+                      {
+                        xml :
+                            `<block type="task_io_interrupt">
+                                <value name="pin">
+                                    <shadow type="math_number">
+                                        <field name="NUM">1</field>
+                                    </shadow>
+                                </value>
+                            </block>`
+                      },
+                      {
+                        xml : `<block type="task_timer_interrupt">
+                                    <value name="delay">
+                                        <shadow type="math_number">
+                                            <field name="NUM">500</field>
+                                        </shadow>
+                                    </value>
+                               </block>`
+                      },
+                      {
+                        xml : `<block type="task_timer_interrupt_once">
                                         <value name="delay">
                                             <shadow type="math_number">
                                                 <field name="NUM">500</field>
                                             </shadow>
                                         </value>
                                    </block>`
-                        },
-                        'task_detach_timer'
+                      },
+                      'task_task',
+                      {
+                        xml : `<sep gap="32"></sep><label text="Auto start" web-class="headline"></label>`
+                      },
+                      {
+                        xml :
+                            `<block type="task_io_interrupt_ext">
+                                <value name="pin">
+                                    <shadow type="math_number">
+                                        <field name="NUM">1</field>
+                                    </shadow>
+                                </value>
+                            </block>`
+                      },
+                      {
+                        xml : `<block type="task_timer_interrupt_ext">
+                                    <value name="delay">
+                                        <shadow type="math_number">
+                                            <field name="NUM">500</field>
+                                        </shadow>
+                                    </value>
+                               </block>`
+                      },
+                      {
+                        xml : `<block type="task_timer_interrupt_once_ext">
+                                        <value name="delay">
+                                            <shadow type="math_number">
+                                                <field name="NUM">500</field>
+                                            </shadow>
+                                        </value>
+                                   </block>`
+                      },
+                      'task_task_ext',
+                      {
+                        xml : `<sep gap="32"></sep><label text="Stopper" web-class="headline"></label>`
+                      },
+                      'task_detach_timer',
+                      {
+                        xml : `<block type="task_detach_gpio">
+                                        <value name="pin">
+                                            <shadow type="math_number">
+                                                <field name="NUM">1</field>
+                                            </shadow>
+                                        </value>
+                                   </block>`
+                      }
                     ]
                 }
             ]
