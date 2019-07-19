@@ -235,10 +235,20 @@ module.exports = {
             color : '230',
             icon : '/static/icons/icons8_electronics_96px.png',
             blocks : [
+                {
+                    xml :
+                    `<block type="task_io_interrupt">
+                        <value name="pin">
+                            <shadow type="math_number">
+                                <field name="NUM">1</field>
+                            </shadow>
+                        </value>
+                    </block>`
+                },
                 'io_board_read',
                 'io_board_write',
                 {
-                    xml : 
+                    xml :
                     `<block type="io_board_write_value">
                         <value name="value">
                             <shadow type="math_number">
@@ -248,7 +258,7 @@ module.exports = {
                     </block>`
                 },
                 {
-                    xml : 
+                    xml :
                     `<block type="io_setpin">
                         <value name="pin">
                             <shadow type="math_number">
@@ -258,7 +268,7 @@ module.exports = {
                     </block>`
                 },
                 {
-                    xml : 
+                    xml :
                     `<block type="io_digital_read">
                         <value name="pin">
                             <shadow type="math_number">
@@ -268,7 +278,7 @@ module.exports = {
                     </block>`
                 },
                 {
-                    xml : 
+                    xml :
                     `<block type="io_digital_write">
                         <value name="pin">
                             <shadow type="math_number">
@@ -281,9 +291,9 @@ module.exports = {
                             </shadow>
                         </value>
                     </block>`
-                },                
+                },
                 {
-                    xml : 
+                    xml :
                     `<block type="io_analog_read">
                         <value name="pin">
                             <shadow type="math_number">
@@ -303,7 +313,7 @@ module.exports = {
                     </block>`
                 },
                 {
-                    xml : 
+                    xml :
                     `<block type="io_pwm_write">
                         <value name="pin">
                             <shadow type="math_number">
@@ -318,7 +328,7 @@ module.exports = {
                     </block>`
                 },
                 {
-                    xml : 
+                    xml :
                     `<block type="io_pulse_in">
                         <value name="pin">
                             <shadow type="math_number">
@@ -329,7 +339,7 @@ module.exports = {
                 },
                 'io_shift_in',
                 {
-                    xml : 
+                    xml :
                     `<block type="io_shift_out">
                         <value name="data">
                             <shadow type="math_number">
@@ -808,8 +818,25 @@ module.exports = {
                         'serial_read_until',
                         'basic_string'
                     ]
+                },
+                {
+                    type : 'category',
+                    name : 'Task',
+                    icon : '/static/icons/SVG/13.svg',
+                    blocks : [
+                        {
+                            xml : `<block type="task_timer_interrupt">
+                                        <value name="delay">
+                                            <shadow type="math_number">
+                                                <field name="NUM">500</field>
+                                            </shadow>
+                                        </value>
+                                   </block>`
+                        },
+                        'task_detach_timer'
+                    ]
                 }
             ]
         }
     ]
-}
+};
