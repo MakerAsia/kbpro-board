@@ -8,5 +8,5 @@ module.exports = {
     email : 'makerasia@gmail.com',
     git : 'https://github.com/makerasia/kbpro-board/',    
     image : '/static/display.jpg',
-    version : '1.2.0'
+    version : '1.2.1'
 };
