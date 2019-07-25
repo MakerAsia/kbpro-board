@@ -11,11 +11,11 @@ module.exports = {
       blocks: [
         {
           xml: `<block type="variables_set">
-                                <field name="VAR">img1</field>
-                                <value name="VALUE">
-                                    <block type="i2c128x64_create_image" inline="false"></block>
-                                </value>
-                            </block>`
+                  <field name="VAR">img1</field>
+                  <value name="VALUE">
+                      <block type="i2c128x64_create_image" inline="false"></block>
+                  </value>
+                </block>`
         }, {
           xml:
             `<block type="i2c128x64_display_image">
@@ -51,6 +51,7 @@ module.exports = {
                         </value>
                     </block>`
         },
+        "i2c128x64_take_a_photo",
         "i2c128x64_display_clear",
         "i2c128x64_display_display",
         {
